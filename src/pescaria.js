@@ -51,11 +51,17 @@ class Pescaria {
     }
 
     maiorPeixe() {
-        return this.peixes.reduce((maior, p) => (p.peso > maior.peso ? p : maior));
+        if (this.voltouVazio()) {
+            throw new Error('Nenhum peixe foi fisgado');
+        }
+        return this.peixes.reduce((maior, p) => (p.peso > maior.peso ? p : maior), this.peixes[0]);
     }
 
     menorPeixe() {
-        return this.peixes.reduce((menor, p) => (p.peso < menor.peso ? p : menor));
+        if (this.voltouVazio()) {
+            throw new Error('Nenhum peixe foi fisgado');
+        }
+        return this.peixes.reduce((menor, p) => (p.peso < menor.peso ? p : menor), this.peixes[0]);
     }
 
     voltouVazio() {
@@ -75,7 +81,7 @@ class Pescaria {
     }
 
     ordenarPorNome() {
-        return this.nomes().sort();
+        return this.nomes().sort((a, b) => a.localeCompare(b));
     }
 
     ordenarPorPeso() {

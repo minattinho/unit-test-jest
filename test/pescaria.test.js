@@ -230,7 +230,7 @@ describe("pescaria", () => {
     expect(pesoTotal).toBe(0);
     expect(pesoMedio).toBeNaN();
     expect(vazio).toBe(true);
-    expect(acaoMaior).toThrow();
-    expect(acaoMenor).toThrow();
+    expect(acaoMaior).toThrow("Nenhum peixe foi fisgado");
+    expect(acaoMenor).toThrow("Nenhum peixe foi fisgado");
   });
 });
