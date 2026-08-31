@@ -10,4 +10,4 @@ coverage/lcov-report/
 jspm_packages/
 .npm
 .env
-.env.test
+.env.testcoverage/
